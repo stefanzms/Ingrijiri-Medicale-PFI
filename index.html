@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Îngrijire la Domiciliu - Zamfir Marius Ștefan</title>
+<meta name="description" content="Servicii de monitorizare și supraveghere pentru pacienți: tensiune, puls, saturație, organizare medicație și multe altele! Zona Giurgiu și București.">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-xXkTx0k8z1bPO+PcZ0qu9dh1x06mC5k+HgL3I9IYw/YoD41k8Xx+KKPl4yPFSx0qgL01bG6Gw8RmzCz8hTDB4g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif;}
+body {color:#333; line-height:1.6; scroll-behavior:smooth; background:#f5f5f5;}
+a {color:inherit; text-decoration:none;}
+img {max-width:100%; display:block;}
+
+/* Hero */
+header {
+  position: relative;
+  background: linear-gradient(135deg, #00D1FF, #00A3CC); /* gradient blând */
+  color:#fff;
+  text-align:center;
+  padding:160px 20px;
+}
+
+/* overlay comentat */
+header::after {
+  /* content:''; 
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.45); 
+  z-index:1; */
+}
+
+header .content {
+  position:relative; z-index:2;
+}
+
+header h1 {
+  font-size:3rem;
+  margin-bottom:20px;
+  font-weight:700;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5); /* contur text */
+}
+
+header p {
+  font-size:1.2rem;
+  max-width:700px;
+  margin:0 auto 20px auto;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.4); /* contur text */
+}
+
+header .phone {
+  font-size:1.5rem;
+  font-weight:700;
+  margin-top:15px;
+  background:linear-gradient(45deg,#007BFF,#00CFFF);
+  padding:12px 25px;
+  border-radius:12px;
+  display:inline-block;
+  transition:0.3s;
+  box-shadow:0 8px 20px rgba(0,123,255,0.5);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* contur telefon */
+}
+header .phone:hover {transform:scale(1.05); box-shadow:0 12px 30px rgba(0,123,255,0.7);}
+
+/* Section Titles */
+section {padding:100px 20px;}
+h2 {text-align:center; font-size:2.4rem; margin-bottom:60px; color:#007BFF; font-weight:700; animation: fadeInUp 1s ease-out;}
+
+/* Packages Horizontal Scroll */
+.packages-container {
+  overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; padding-bottom:20px;
+}
+.packages {
+  display:flex; gap:25px; flex-wrap:nowrap; max-width:1200px; margin:0 auto;
+}
+.card {
+  background:#fff; border-radius:18px; padding:30px; min-width:240px; flex:0 0 auto;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08); scroll-snap-align:start;
+  transition:0.35s; position:relative;
+  animation: fadeIn 1s ease forwards;
+}
+.card:hover {
+  transform:scale(1.04); box-shadow:0 14px 32px rgba(0,0,0,0.15);
+}
+.card h3 {color:#007BFF; margin-bottom:15px; font-size:1.5rem; display:flex; align-items:center; gap:10px;}
+.card ul {margin-bottom:15px; padding-left:20px;}
+.card li {margin-bottom:10px; font-size:0.95rem;}
+.price {font-weight:700; font-size:1.25rem; margin-bottom:10px; color:#28a745;}
+
+/* Steps */
+.steps {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; max-width:1200px; margin:0 auto;}
+.step {background:linear-gradient(135deg,#007BFF,#00CFFF); color:#fff; padding:30px 25px; border-radius:18px; text-align:center; transition:0.4s; box-shadow:0 7px 18px rgba(0,0,0,0.1);}
+.step:hover {transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.2);}
+.step h3 {margin-bottom:12px; font-size:1.3rem; display:flex; align-items:center; gap:8px;}
+.step p {font-size:1rem; line-height:1.7;}
+
+/* About */
+.about {background:linear-gradient(180deg,#e0f7ff,#f5f9fc); border-radius:20px; max-width:850px; margin:0 auto; text-align:center; padding:60px 40px; box-shadow:0 8px 30px rgba(0,0,0,0.05);}
+.about p {margin-top:20px; font-size:1.05rem; line-height:1.85; animation: fadeInUp 1s ease forwards;}
+
+/* FAQ */
+.faq {max-width:900px; margin:0 auto;}
+.faq details {margin-bottom:18px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05); transition:0.3s;}
+.faq details[open] {background:#e6f2ff;}
+.faq summary {cursor:pointer; font-weight:500; font-size:1.05rem; position:relative; padding-right:25px;}
+.faq details[open] summary::after {content:"▲"; position:absolute; right:0; top:0;}
+.faq summary::after {content:"▼"; position:absolute; right:0; top:0;}
+
+/* Contact */
+.contact {max-width:400px; margin:0 auto; text-align:center;}
+.contact p {
+  font-size:1.4rem; margin:25px 0; font-weight:700;
+  background:linear-gradient(45deg,#00CFFF,#007BFF);
+  -webkit-background-clip:text; color:transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* contur text gradient */
+  transition:0.3s;
+}
+.contact p:hover {transform:scale(1.05);}
+
+/* Footer */
+footer {background:#333; color:#fff; text-align:center; padding:50px 20px; font-size:0.95rem; line-height:1.7;}
+footer a {color:#fff; text-decoration:underline;}
+
+/* Scrollbar hide */
+.packages-container::-webkit-scrollbar {display:none;}
+.packages-container {-ms-overflow-style:none; scrollbar-width:none;}
+
+/* Animations */
+@keyframes fadeIn {from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+@keyframes fadeInDown {from{opacity:0; transform:translateY(-20px);} to{opacity:1; transform:translateY(0);} }
+@keyframes fadeInUp {from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+
+@media(max-width:768px){
+  header h1 {font-size:2rem;}
+  header p {font-size:1rem;}
+  header .phone {font-size:1.25rem;}
+  .card {min-width:220px; padding:22px;}
+  .steps {gap:20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header>
+  <div class="content">
+    <h1>Îngrijire la domiciliu pentru pacienți</h1>
+    <p>Doar siguranță, atenție și sprijin pentru cei dragi. Zona Giurgiu și București.</p>
+    <p class="phone">📞 0763 449 636</p>
+  </div>
+</header>
+
+<!-- Packages -->
+<section id="pachete">
+  <h2>Pachetele noastre</h2>
+  <div class="packages-container">
+    <div class="packages">
+      <div class="card"><h3><i class="fas fa-calendar-week"></i> Vizită Săptămânală</h3><div class="price">200 lei / lună</div><ul><li>1 vizită / săptămână</li><li>Tensiune, puls, saturație</li><li>Stare generală</li><li>Verificare medicație</li><li>Raport scurt familiei</li></ul></div>
+      <div class="card"><h3><i class="fas fa-heartbeat"></i> Grijă de Rutină</h3><div class="price">350 lei / lună</div><ul><li>2 vizite / săptămână</li><li>Monitorizare completă</li><li>Verificare alimentație & hidratare</li><li>Organizare pastile</li><li>Raport după fiecare vizită</li></ul></div>
+      <div class="card"><h3><i class="fas fa-clock"></i> Zilnic (L-V)</h3><div class="price">900 lei / lună</div><ul><li>5 vizite / săptămână</li><li>Verificare stare generală</li><li>TA, puls, O₂</li><li>Organizare pastile zilnic</li><li>Mesaj zilnic către familie</li></ul></div>
+      <div class="card"><h3><i class="fas fa-calendar-check"></i> Program flexibil 30 zile</h3><div class="price">500 lei / 10 vizite</div><ul><li>Vizitele se programează după nevoie</li><li>Ideal pentru situații imprevizibile</li><li>Valabil 30 zile</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- Steps -->
+<section>
+  <h2>Cum funcționează?</h2>
+  <div class="steps">
+    <div class="step"><h3><i class="fas fa-phone-alt"></i> 1. Contactează-mă!</h3><p>Prin telefon sau WhatsApp.</p></div>
+    <div class="step"><h3><i class="fas fa-hand-holding-medical"></i> 2. Alegem pachetul potrivit</h3><p>Stabilim ziua și intervalul convenabil.</p></div>
+    <div class="step"><h3><i class="fas fa-notes-medical"></i> 3. Încep vizitele</h3><p>Monitorizare completă și rapoarte către familie.</p></div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about">
+  <h2>Despre Zamfir Marius Ștefan</h2>
+  <p>Sunt asistent medical cu PFI autorizat, ofer servicii de monitorizare și supraveghere la domiciliu pentru pacienți. Zona de acoperire: Giurgiu și București. Lucrez cu profesionalism, grijă și respect pentru cei dragi. Serviciile includ tensiune, puls, saturație, organizare pastile și rapoarte către familie, plus multe altele.</p>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2>Întrebări frecvente</h2>
+  <details><summary>Fac injecții sau proceduri medicale?</summary>De regulă, oferim servicii non-invazive, dar sunt și cazuri speciale in care administrăm medicamente prescrise și recoltăm probe.</details>
+  <details><summary>Ce ore și zone acoperi?</summary>Luni-Vineri, 08:00–18:00, în Giurgiu și București. Interval special? Contactează-mă.</details>
+  <details><summary>Ce se întâmplă în caz de urgență?</summary>Dacă observ semne de agravare, contactez familia și recomand apel 112. Nu administrez proceduri de urgență.</details>
+  <details><summary>Cum plătesc?</summary>Plata se face lunar prin transfer bancar, cash la vizită sau preplătit pentru pachete flexibile.</details>
+</section>
+
+<!-- Contact -->
+<section class="contact">
+  <h2>Programează o vizită</h2>
+  <p>📞 0763 449 636</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Zamfir Marius Ștefan | PFI autorizat | Servicii în Giurgiu & București</p>
+  <p>Email: <a href="mailto:zamfir.stefan@registerednurses.com">zamfir.stefan@registerednurses.com</a> | Tel: 0763 449 636</p>
+  <p>Serviciile oferite sunt non-invazive și nu înlocuiesc consultația medicală. În caz de urgență, sunați 112.</p>
+</footer>
+
+</body>
+</html>
